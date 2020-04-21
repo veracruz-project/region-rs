@@ -10,6 +10,12 @@ mod unix;
 #[cfg(unix)]
 pub use self::unix::{lock, page_size, set_protection, unlock};
 
+#[cfg(target_os = "icecap")]
+mod icecap;
+
+#[cfg(target_os = "icecap")]
+pub use self::icecap::{get_region, lock, page_size, set_protection, unlock};
+
 #[cfg(any(target_os = "macos", target_os = "ios"))]
 mod macos;
 
